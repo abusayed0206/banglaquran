@@ -22,25 +22,27 @@ interface SurahName {
   surah_name: string;
 }
 
+// SurahPage Component
 const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
   const surahNumber = parseInt(params.surahnumber, 10);
 
+  // States for storing Surah data and loading states
   const [surah, setSurah] = useState<SurahData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [surahs, setSurahs] = useState<SurahName[]>([]); // Update type to match JSON structure
-  const audioRef = useRef<HTMLAudioElement | null>(null); // Ref for audio element
-  const [isPlaying, setIsPlaying] = useState<boolean>(false); // Play state
+  const [surahs, setSurahs] = useState<SurahName[]>([]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   // Fetch Surah names
   useEffect(() => {
     const fetchSurahs = async () => {
       try {
-        const response = await fetch("/data/surah.json"); // Fetching from public directory
+        const response = await fetch("/data/surah.json");
         if (!response.ok) {
           throw new Error("Failed to fetch Surah names");
         }
-        const data: SurahName[] = await response.json(); // Fetch and set Bangla surah names
+        const data: SurahName[] = await response.json();
         setSurahs(data);
       } catch (error) {
         console.error(error);
@@ -60,7 +62,7 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
         if (!response.ok) {
           throw new Error("Failed to fetch Surah data");
         }
-        const data: SurahData = await response.json(); // Use the defined SurahData type here
+        const data: SurahData = await response.json();
         setSurah(data);
       } catch (err) {
         if (err instanceof Error) {
@@ -80,17 +82,17 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
   const handlePlayPause = async () => {
     if (surah) {
       if (isPlaying) {
-        audioRef.current?.pause(); // Pause the audio
-        setIsPlaying(false); // Set playing state to false
+        audioRef.current?.pause();
+        setIsPlaying(false);
       } else {
         for (let i = 0; i < surah.ayahs.length; i++) {
-          audioRef.current = new Audio(surah.ayahs[i].audio); // Create a new Audio object
-          await audioRef.current.play(); // Play the audio
+          audioRef.current = new Audio(surah.ayahs[i].audio);
+          await audioRef.current.play();
           await new Promise((resolve) => {
-            audioRef.current!.onended = resolve; // Wait for audio to finish playing
+            audioRef.current!.onended = resolve;
           });
         }
-        setIsPlaying(true); // Set playing state to true
+        setIsPlaying(true);
       }
     }
   };
@@ -99,9 +101,9 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
   useEffect(() => {
     return () => {
       if (audioRef.current) {
-        audioRef.current.pause(); // Pause audio
-        audioRef.current.currentTime = 0; // Reset audio time
-        setIsPlaying(false); // Reset playing state
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+        setIsPlaying(false);
       }
     };
   }, []);
@@ -116,6 +118,7 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
       .join("");
   };
 
+  // Loading and error handling
   if (loading) return <div className="text-center">লোড হচ্ছে...</div>;
   if (error) return <div className="text-center text-red-600">{error}</div>;
 
@@ -142,7 +145,6 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
             </p>
           </div>
 
-          {/* Bismillah Section */}
           <div className="bg-gray-200 text-black p-4 rounded mb-5 flex flex-col items-center justify-center w-full max-w-md">
             <p className="text-lg text-center">
               بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
@@ -155,7 +157,6 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
             </button>
           </div>
 
-          {/* Display Ayahs */}
           <div className="w-full max-w-md">
             {surah.ayahs.map((ayah, index) => (
               <div
@@ -174,5 +175,8 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
     </div>
   );
 };
+
+// Specify that this component should run in the Edge runtime
+export const runtime = "edge";
 
 export default SurahPage;
