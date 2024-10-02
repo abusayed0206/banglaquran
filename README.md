@@ -11,17 +11,19 @@ Welcome to the **Quran Audio in Bangla** project! This repository is created to 
 ## API Endpoints 📡
 
 1. **Get Ayah Audio**
+
    - Endpoint: `/api/[surahnumber][ayahnumber]`
    - Example Request: `/api/1/4`
    - Example Response:
+
    ```json
    {
-       "surahName": "Al-Faatiha",
-       "surahNumber": 1,
-       "revelationType": "Meccan",
-       "ayahNumber": 4,
-       "text": "যিনি বিচার দিনের মালিক।",
-       "audio": "/audio/bangla/1-4.mp3"
+     "surahName": "Al-Faatiha",
+     "surahNumber": 1,
+     "revelationType": "Meccan",
+     "ayahNumber": 4,
+     "text": "যিনি বিচার দিনের মালিক।",
+     "audio": "/audio/bangla/1-4.mp3"
    }
    ```
 
@@ -31,39 +33,23 @@ Welcome to the **Quran Audio in Bangla** project! This repository is created to 
    - Example Response:
    ```json
    {
-       "code": 200,
-       "status": "OK",
-       "data": {
-           "number": 114,
-           "name": "سُورَةُ النَّاسِ",
-           "englishName": "An-Naas",
-           "englishNameTranslation": "Mankind",
-           "revelationType": "Meccan",
-           "numberOfAyahs": 6,
-           "ayahs": [
-               {
-                   "number": 6231,
-                   "text": "বলুন, আমি আশরাফ গরহানে করিতেছি মানুষের পালানকর্তা।",
-                   "numberInSurah": 1,
-                   "juz": 30,
-                   "manzil": 7,
-                   "page": 604,
-                   "ruku": 556,
-                   "hizbQuarter": 240,
-                   "sajda": false
-               },
-               // More ayahs here...
-           ],
-           "edition": {
-               "identifier": "bn.bengali",
-               "language": "bn",
-               "name": "মুহিউদ্দীন খান",
-               "englishName": "Muhiuddin Khan",
-               "format": "text",
-               "type": "translation",
-               "direction": "ltr"
-           }
+     "surahName": "Al-Faatiha",
+     "surahNumber": 1,
+     "numberofAyahs": 7,
+     "revelationType": "Meccan",
+     "ayahs": [
+       {
+         "number": 1,
+         "text": "শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।",
+         "audio": "/audio/bangla/1-1.mp3"
+       },
+       // More ayahs here...
+       {
+         "number": 7,
+         "text": "সে সমস্ত লোকের পথ, যাদেরকে তুমি নেয়ামত দান করেছ। তাদের পথ নয়, যাদের প্রতি তোমার গজব নাযিল হয়েছে এবং যারা পথভ্রষ্ট হয়েছে।",
+         "audio": "/audio/bangla/1-7.mp3"
        }
+     ]
    }
    ```
 
@@ -72,7 +58,7 @@ Welcome to the **Quran Audio in Bangla** project! This repository is created to 
 - Audio from: [Quran.Gov.BD](http://www.quran.gov.bd/)
 - Text from: [Al-Quran Cloud API](https://alquran.cloud/api)
 
-A heartfelt thank you to those who made this content available. Jazakallahu Khair! 
+A heartfelt thank you to those who made this content available. Jazakallahu Khair!
 
 ## Support 🤲
 

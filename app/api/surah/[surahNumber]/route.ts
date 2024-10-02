@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const runtime = "edge";
+
 const QURAN_API_BASE = "https://api.alquran.cloud/v1/surah";
 
 export async function GET(
