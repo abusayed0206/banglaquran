@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quran Audio in Bangla 🎧📖
 
-## Getting Started
+Welcome to the **Quran Audio in Bangla** project! This repository is created to help you listen to the Quran in Bangla without needing to go to YouTube every time. Enjoy the divine words of Allah with ease and convenience!
 
-First, run the development server:
+## Features 🌟
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Listen to Quranic verses in Bangla
+- Easy access through simple API endpoints
+- Audio and text data sourced from reliable platforms
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API Endpoints 📡
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Get Ayah Audio**
+   - Endpoint: `/api/[surahnumber][ayahnumber]`
+   - Example Request: `/api/1/4`
+   - Example Response:
+   ```json
+   {
+       "surahName": "Al-Faatiha",
+       "surahNumber": 1,
+       "revelationType": "Meccan",
+       "ayahNumber": 4,
+       "text": "যিনি বিচার দিনের মালিক।",
+       "audio": "/audio/bangla/1-4.mp3"
+   }
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Get Surah Details**
+   - Endpoint: `/api/surah/[surahnumber]`
+   - Example Request: `/api/surah/114`
+   - Example Response:
+   ```json
+   {
+       "code": 200,
+       "status": "OK",
+       "data": {
+           "number": 114,
+           "name": "سُورَةُ النَّاسِ",
+           "englishName": "An-Naas",
+           "englishNameTranslation": "Mankind",
+           "revelationType": "Meccan",
+           "numberOfAyahs": 6,
+           "ayahs": [
+               {
+                   "number": 6231,
+                   "text": "বলুন, আমি আশরাফ গরহানে করিতেছি মানুষের পালানকর্তা।",
+                   "numberInSurah": 1,
+                   "juz": 30,
+                   "manzil": 7,
+                   "page": 604,
+                   "ruku": 556,
+                   "hizbQuarter": 240,
+                   "sajda": false
+               },
+               // More ayahs here...
+           ],
+           "edition": {
+               "identifier": "bn.bengali",
+               "language": "bn",
+               "name": "মুহিউদ্দীন খান",
+               "englishName": "Muhiuddin Khan",
+               "format": "text",
+               "type": "translation",
+               "direction": "ltr"
+           }
+       }
+   }
+   ```
 
-## Learn More
+## Acknowledgments 🙏
 
-To learn more about Next.js, take a look at the following resources:
+- Audio from: [Quran.Gov.BD](http://www.quran.gov.bd/)
+- Text from: [Al-Quran Cloud API](https://alquran.cloud/api)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+A heartfelt thank you to those who made this content available. Jazakallahu Khair! 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Support 🤲
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Please pray for me; it would be the best donation for my efforts.
