@@ -1,25 +1,19 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image"; // Import Next.js Image component
 
 // Define the AyahData and SurahData types to match your API structure
 interface AyahData {
-  number: number;
-  text: string;
+  img: string;
   audio: string;
 }
 
 interface SurahData {
   surahName: string;
   surahNumber: number;
-  numberofAyahs: number;
-  revelationType: string;
-  ayahs: AyahData[];
-}
-
-interface SurahName {
-  surah_number: number;
-  surah_name: string;
+  totalAyahs: number;
+  ayah: AyahData[];
 }
 
 // SurahPage Component
@@ -30,34 +24,16 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
   const [surah, setSurah] = useState<SurahData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [surahs, setSurahs] = useState<SurahName[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-
-  // Fetch Surah names
-  useEffect(() => {
-    const fetchSurahs = async () => {
-      try {
-        const response = await fetch("/data/surah.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch Surah names");
-        }
-        const data: SurahName[] = await response.json();
-        setSurahs(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchSurahs();
-  }, []);
+  const [currentAyahIndex, setCurrentAyahIndex] = useState<number>(0);
 
   // Fetch Surah data
   useEffect(() => {
     const fetchSurahData = async () => {
       try {
         const response = await fetch(
-          `https://banglaquran.pages.dev/api/surah/${surahNumber}`
+          `/api/${surahNumber}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch Surah data");
@@ -85,13 +61,18 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
         audioRef.current?.pause();
         setIsPlaying(false);
       } else {
-        for (let i = 0; i < surah.ayahs.length; i++) {
-          audioRef.current = new Audio(surah.ayahs[i].audio);
-          await audioRef.current.play();
-          await new Promise((resolve) => {
-            audioRef.current!.onended = resolve;
-          });
-        }
+        // Play the current Ayah audio and move through all Ayahs
+        const ayahAudio = new Audio(surah.ayah[currentAyahIndex].audio);
+        audioRef.current = ayahAudio;
+        await ayahAudio.play();
+        ayahAudio.onended = () => {
+          if (currentAyahIndex < surah.ayah.length - 1) {
+            setCurrentAyahIndex(currentAyahIndex + 1);
+            handlePlayPause(); // Automatically play the next Ayah after current ends
+          } else {
+            setIsPlaying(false); // Stop when all Ayahs have been played
+          }
+        };
         setIsPlaying(true);
       }
     }
@@ -108,16 +89,6 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
     };
   }, []);
 
-  // Function to convert English numbers to Bengali numbers
-  const translateToBengaliNumbers = (num: number): string => {
-    const bengaliDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
-    return num
-      .toString()
-      .split("")
-      .map((digit) => bengaliDigits[parseInt(digit)])
-      .join("");
-  };
-
   // Loading and error handling
   if (loading) return <div className="text-center">লোড হচ্ছে...</div>;
   if (error) return <div className="text-center text-red-600">{error}</div>;
@@ -130,25 +101,12 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
       {surah && (
         <>
           <div className="bg-white text-black shadow-md rounded-lg mb-5 p-4 w-full max-w-md text-center">
-            <h2 className="text-2xl font-bold">
-              {surahs.find((s) => s.surah_number === surah.surahNumber)
-                ?.surah_name || surah.surahName}
-            </h2>
-            <p className="text-lg text-gray-600">
-              সূরা নম্বর: {translateToBengaliNumbers(surah.surahNumber)}
-            </p>
-            <p className="text-lg text-gray-600">
-              প্রকাশের ধরন: {surah.revelationType}
-            </p>
-            <p className="text-lg text-gray-600">
-              আয়াত সংখ্যা: {translateToBengaliNumbers(surah.numberofAyahs)}
-            </p>
+            <h2 className="text-2xl font-bold">{surah.surahName}</h2>
+            <p className="text-lg text-gray-600">সূরা নম্বর: {surah.surahNumber}</p>
+            <p className="text-lg text-gray-600">আয়াত সংখ্যা: {surah.totalAyahs}</p>
           </div>
 
           <div className="bg-gray-200 text-black p-4 rounded mb-5 flex flex-col items-center justify-center w-full max-w-md">
-            <p className="text-lg text-center">
-              بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ
-            </p>
             <button
               onClick={handlePlayPause}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition mt-2"
@@ -158,15 +116,19 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
           </div>
 
           <div className="w-full max-w-md">
-            {surah.ayahs.map((ayah, index) => (
+            {surah.ayah.map((ayah, index) => (
               <div
                 key={index}
                 className="bg-white text-black p-4 rounded-lg shadow-md mb-4"
               >
-                <p className="text-lg mb-2">{ayah.text}</p>
-                <p className="text-sm text-gray-600 mt-2">
-                  আয়াত নম্বর: {translateToBengaliNumbers(ayah.number)}
-                </p>
+                {/* Use Next.js Image component for better optimization */}
+                <Image
+                  src={ayah.img}
+                  alt={`Ayah ${index + 1}`}
+                  width={500} // Set a consistent width for all images
+                  height={300} // Set a numeric height value
+                  className="w-full h-auto rounded mb-2"
+                />
               </div>
             ))}
           </div>

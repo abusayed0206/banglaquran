@@ -1,116 +1,572 @@
 [
-  { "surah_number": 1, "surah_name": "আল ফাতিহা" },
-  { "surah_number": 2, "surah_name": "আল বাক্বারাহ্" },
-  { "surah_number": 3, "surah_name": "আলে ইমরান" },
-  { "surah_number": 4, "surah_name": "আন-নিসা" },
-  { "surah_number": 5, "surah_name": "আল-মায়েদাহ্" },
-  { "surah_number": 6, "surah_name": "আল-আন‘আম" },
-  { "surah_number": 7, "surah_name": "আল-আ‘রাফ" },
-  { "surah_number": 8, "surah_name": "আল-আনফাল" },
-  { "surah_number": 9, "surah_name": "আত-তাওবাহ্" },
-  { "surah_number": 10, "surah_name": "ইউনুস" },
-  { "surah_number": 11, "surah_name": "হূদ" },
-  { "surah_number": 12, "surah_name": "ইউসুফ" },
-  { "surah_number": 13, "surah_name": "আর-রা‘দ" },
-  { "surah_number": 14, "surah_name": "ইব্রাহীম" },
-  { "surah_number": 15, "surah_name": "আল-হিজর" },
-  { "surah_number": 16, "surah_name": "আন-নাহ্‌ল" },
-  { "surah_number": 17, "surah_name": "আল-ইসরা" },
-  { "surah_number": 18, "surah_name": "আল-কাহফ" },
-  { "surah_number": 19, "surah_name": "মারইয়াম" },
-  { "surah_number": 20, "surah_name": "ত্বা-হা" },
-  { "surah_number": 21, "surah_name": "আল-আম্বিয়া" },
-  { "surah_number": 22, "surah_name": "আল-হাজ্জ" },
-  { "surah_number": 23, "surah_name": "আল-মু’মিনূন" },
-  { "surah_number": 24, "surah_name": "আন-নূর" },
-  { "surah_number": 25, "surah_name": "আল-ফুরক্বান" },
-  { "surah_number": 26, "surah_name": "আশ-শু‘আরা" },
-  { "surah_number": 27, "surah_name": "আন-নামল" },
-  { "surah_number": 28, "surah_name": "আল-ক্বাসাস" },
-  { "surah_number": 29, "surah_name": "আল-‘আনকাবূত" },
-  { "surah_number": 30, "surah_name": "আর-রূম" },
-  { "surah_number": 31, "surah_name": "লুক্বমান" },
-  { "surah_number": 32, "surah_name": "আস-সাজদা" },
-  { "surah_number": 33, "surah_name": "আল-আহযাব" },
-  { "surah_number": 34, "surah_name": "সাবা" },
-  { "surah_number": 35, "surah_name": "ফাতের" },
-  { "surah_number": 36, "surah_name": "ইয়াসীন" },
-  { "surah_number": 37, "surah_name": "আস-সাফ্‌ফাত" },
-  { "surah_number": 38, "surah_name": "সুরত সদ" },
-  { "surah_number": 39, "surah_name": "আয-যুমার" },
-  { "surah_number": 40, "surah_name": "গাফের" },
-  { "surah_number": 41, "surah_name": "ফুসসিলাত" },
-  { "surah_number": 42, "surah_name": "আশ-শূরা" },
-  { "surah_number": 43, "surah_name": "আয-যুখরুফ" },
-  { "surah_number": 44, "surah_name": "আদ-দুখান" },
-  { "surah_number": 45, "surah_name": "আল-জাসিয়া" },
-  { "surah_number": 46, "surah_name": "আল-আহক্বাফ" },
-  { "surah_number": 47, "surah_name": "মুহাম্মাদ" },
-  { "surah_number": 48, "surah_name": "আল-ফাতহ" },
-  { "surah_number": 49, "surah_name": "আল-হুজুরাত" },
-  { "surah_number": 50, "surah_name": "সুরত ক্বাফ" },
-  { "surah_number": 51, "surah_name": "আয-যারিয়াত" },
-  { "surah_number": 52, "surah_name": "আত-তূর" },
-  { "surah_number": 53, "surah_name": "আন-নাজম" },
-  { "surah_number": 54, "surah_name": "আল-ক্বামার" },
-  { "surah_number": 55, "surah_name": "আর-রাহমান" },
-  { "surah_number": 56, "surah_name": "আল-ওয়াক্বি‘আহ" },
-  { "surah_number": 57, "surah_name": "আল-হাদীদ" },
-  { "surah_number": 58, "surah_name": "আল-মুজাদালাহ্" },
-  { "surah_number": 59, "surah_name": "আল-হাশর" },
-  { "surah_number": 60, "surah_name": "আল-মুমতাহিনা" },
-  { "surah_number": 61, "surah_name": "আস-সাফ" },
-  { "surah_number": 62, "surah_name": "আল-জুমু‘আ" },
-  { "surah_number": 63, "surah_name": "আল-মুনাফিক্বূন" },
-  { "surah_number": 64, "surah_name": "আত-তাগাবুন" },
-  { "surah_number": 65, "surah_name": "আত-ত্বালাক" },
-  { "surah_number": 66, "surah_name": "আত-তাহরীম" },
-  { "surah_number": 67, "surah_name": "আল-মুলক" },
-  { "surah_number": 68, "surah_name": "আল-ক্বালাম" },
-  { "surah_number": 69, "surah_name": "আল-হাক্কাহ্" },
-  { "surah_number": 70, "surah_name": "আল-মা‘আরেজ" },
-  { "surah_number": 71, "surah_name": "নূহ" },
-  { "surah_number": 72, "surah_name": "আল-জিন্ন" },
-  { "surah_number": 73, "surah_name": "আল-মুযযাম্মিল" },
-  { "surah_number": 74, "surah_name": "আল-মুদ্দাস্‌সির" },
-  { "surah_number": 75, "surah_name": "আল-ক্বিয়ামাহ্‌" },
-  { "surah_number": 76, "surah_name": "আল-ইনসান" },
-  { "surah_number": 77, "surah_name": "আল-মুরসালাত" },
-  { "surah_number": 78, "surah_name": "আন-নাবা" },
-  { "surah_number": 79, "surah_name": "আন-নাযি‘আত" },
-  { "surah_number": 80, "surah_name": "‘আবাসা" },
-  { "surah_number": 81, "surah_name": "আত-তাকভীর" },
-  { "surah_number": 82, "surah_name": "আল-ইনফিতার" },
-  { "surah_number": 83, "surah_name": "আল-মুতাফফিফীন" },
-  { "surah_number": 84, "surah_name": "আল-ইনশিক্বাক" },
-  { "surah_number": 85, "surah_name": "আল-বুরূজ" },
-  { "surah_number": 86, "surah_name": "আত-ত্বারেক" },
-  { "surah_number": 87, "surah_name": "আল-আ‘লা" },
-  { "surah_number": 88, "surah_name": "আল-গাশিয়াহ্" },
-  { "surah_number": 89, "surah_name": "আল-ফাজর" },
-  { "surah_number": 90, "surah_name": "আল-বালাদ" },
-  { "surah_number": 91, "surah_name": "আশ-শামস" },
-  { "surah_number": 92, "surah_name": "আল-লাইল" },
-  { "surah_number": 93, "surah_name": "আদ্ব-দ্বুহা" },
-  { "surah_number": 94, "surah_name": "আশ-শারহ" },
-  { "surah_number": 95, "surah_name": "আত-তীন" },
-  { "surah_number": 96, "surah_name": "আল-‘আলাক্ব" },
-  { "surah_number": 97, "surah_name": "আল-ক্বাদর" },
-  { "surah_number": 98, "surah_name": "আল-বায়্যিনাহ্" },
-  { "surah_number": 99, "surah_name": "আয-যালযালাহ্" },
-  { "surah_number": 100, "surah_name": "আল-‘আদিয়াত" },
-  { "surah_number": 101, "surah_name": "আল-ক্বারি‘আহ্" },
-  { "surah_number": 102, "surah_name": "আত-তাকাসুর" },
-  { "surah_number": 103, "surah_name": "আল-‘আসর" },
-  { "surah_number": 104, "surah_name": "আল-হুমাযাহ্" },
-  { "surah_number": 105, "surah_name": "আল-ফীল" },
-  { "surah_number": 106, "surah_name": "ক্বুরাইশ" },
-  { "surah_number": 107, "surah_name": "আল-মা‘ঊন" },
-  { "surah_number": 108, "surah_name": "আল-কাউসার" },
-  { "surah_number": 109, "surah_name": "আল-কাফিরূন" },
-  { "surah_number": 110, "surah_name": "আন-নাসর" },
-  { "surah_number": 111, "surah_name": "আল-মাসাদ" },
-  { "surah_number": 112, "surah_name": "আল-ইখলাস" },
-  { "surah_number": 113, "surah_name": "আল-ফালাক্ব" },
-  { "surah_number": 114, "surah_name": "আন-নাস" }
+  {
+    "surah_number": "1",
+    "surah_name": "আল ফাতিহা",
+    "total_ayahs": 7
+  },
+  {
+    "surah_number": "2",
+    "surah_name": "আল বাক্বারাহ্",
+    "total_ayahs": 286
+  },
+  {
+    "surah_number": "3",
+    "surah_name": "আলে ইমরান",
+    "total_ayahs": 200
+  },
+  {
+    "surah_number": "4",
+    "surah_name": "আন-নিসা",
+    "total_ayahs": 176
+  },
+  {
+    "surah_number": "5",
+    "surah_name": "আল মায়িদা",
+    "total_ayahs": 120
+  },
+  {
+    "surah_number": "6",
+    "surah_name": "আল আন’আম",
+    "total_ayahs": 165
+  },
+  {
+    "surah_number": "7",
+    "surah_name": "আল আরাফ",
+    "total_ayahs": 206
+  },
+  {
+    "surah_number": "8",
+    "surah_name": "আল আনফাল",
+    "total_ayahs": 75
+  },
+  {
+    "surah_number": "9",
+    "surah_name": "আত-তাওবা",
+    "total_ayahs": 129
+  },
+  {
+    "surah_number": "10",
+    "surah_name": "ইউনুস",
+    "total_ayahs": 109
+  },
+  {
+    "surah_number": "11",
+    "surah_name": "হুদ",
+    "total_ayahs": 123
+  },
+  {
+    "surah_number": "12",
+    "surah_name": "ইউসুফ",
+    "total_ayahs": 111
+  },
+  {
+    "surah_number": "13",
+    "surah_name": "আর-রাদ",
+    "total_ayahs": 43
+  },
+  {
+    "surah_number": "14",
+    "surah_name": "ইব্রাহিম",
+    "total_ayahs": 52
+  },
+  {
+    "surah_number": "15",
+    "surah_name": "আল-হিজর",
+    "total_ayahs": 99
+  },
+  {
+    "surah_number": "16",
+    "surah_name": "আন-নাহল",
+    "total_ayahs": 128
+  },
+  {
+    "surah_number": "17",
+    "surah_name": "ইসরা",
+    "total_ayahs": 111
+  },
+  {
+    "surah_number": "18",
+    "surah_name": "আল-কাহফ",
+    "total_ayahs": 110
+  },
+  {
+    "surah_number": "19",
+    "surah_name": "মারিয়াম",
+    "total_ayahs": 98
+  },
+  {
+    "surah_number": "20",
+    "surah_name": "তাহা",
+    "total_ayahs": 135
+  },
+  {
+    "surah_number": "21",
+    "surah_name": "আল-আমবিয়া",
+    "total_ayahs": 112
+  },
+  {
+    "surah_number": "22",
+    "surah_name": "আল-হাজ",
+    "total_ayahs": 78
+  },
+  {
+    "surah_number": "23",
+    "surah_name": "আল-মুমিনুন",
+    "total_ayahs": 118
+  },
+  {
+    "surah_number": "24",
+    "surah_name": "আল-নূর",
+    "total_ayahs": 64
+  },
+  {
+    "surah_number": "25",
+    "surah_name": "আল-ফুরকান",
+    "total_ayahs": 77
+  },
+  {
+    "surah_number": "26",
+    "surah_name": "আশ-শু'আরা",
+    "total_ayahs": 227
+  },
+  {
+    "surah_number": "27",
+    "surah_name": "আল-নামল",
+    "total_ayahs": 55
+  },
+  {
+    "surah_number": "28",
+    "surah_name": "আল-কাশাস",
+    "total_ayahs": 88
+  },
+  {
+    "surah_number": "29",
+    "surah_name": "আল-আঙ্কাবুত",
+    "total_ayahs": 69
+  },
+  {
+    "surah_number": "30",
+    "surah_name": "আর-রুম",
+    "total_ayahs": 60
+  },
+  {
+    "surah_number": "31",
+    "surah_name": "লুকমান",
+    "total_ayahs": 34
+  },
+  {
+    "surah_number": "32",
+    "surah_name": "আস-সাজদা",
+    "total_ayahs": 30
+  },
+  {
+    "surah_number": "33",
+    "surah_name": "আল-আহজাব",
+    "total_ayahs": 73
+  },
+  {
+    "surah_number": "34",
+    "surah_name": "সাবা",
+    "total_ayahs": 54
+  },
+  {
+    "surah_number": "35",
+    "surah_name": "ফাতির",
+    "total_ayahs": 45
+  },
+  {
+    "surah_number": "36",
+    "surah_name": "ইয়াসীন",
+    "total_ayahs": 83
+  },
+  {
+    "surah_number": "37",
+    "surah_name": "আস-সাফফাত",
+    "total_ayahs": 182
+  },
+  {
+    "surah_number": "38",
+    "surah_name": "সাদ",
+    "total_ayahs": 88
+  },
+  {
+    "surah_number": "39",
+    "surah_name": "আয-যুমার",
+    "total_ayahs": 75
+  },
+  {
+    "surah_number": "40",
+    "surah_name": "গাফির",
+    "total_ayahs": 85
+  },
+  {
+    "surah_number": "41",
+    "surah_name": "হামিম আস-সিজদা",
+    "total_ayahs": 54
+  },
+  {
+    "surah_number": "42",
+    "surah_name": "আশ-শুরা",
+    "total_ayahs": 53
+  },
+  {
+    "surah_number": "43",
+    "surah_name": "আয-যুখরূফ",
+    "total_ayahs": 89
+  },
+  {
+    "surah_number": "44",
+    "surah_name": "আদ-দুখান",
+    "total_ayahs": 59
+  },
+  {
+    "surah_number": "45",
+    "surah_name": "আল-জাথিয়া",
+    "total_ayahs": 37
+  },
+  {
+    "surah_number": "46",
+    "surah_name": "আল-আহকাফ",
+    "total_ayahs": 35
+  },
+  {
+    "surah_number": "47",
+    "surah_name": "মুহাম্মদ",
+    "total_ayahs": 38
+  },
+  {
+    "surah_number": "48",
+    "surah_name": "ফাতহ",
+    "total_ayahs": 29
+  },
+  {
+    "surah_number": "49",
+    "surah_name": "আল-হুজুরাত",
+    "total_ayahs": 18
+  },
+  {
+    "surah_number": "50",
+    "surah_name": " কাফ",
+    "total_ayahs": 45
+  },
+  {
+    "surah_number": "51",
+    "surah_name": "আজ-জারিয়াত",
+    "total_ayahs": 60
+  },
+  {
+    "surah_number": "52",
+    "surah_name": "আত-তুর",
+    "total_ayahs": 49
+  },
+  {
+    "surah_number": "53",
+    "surah_name": "আন্নাজম",
+    "total_ayahs": 62
+  },
+  {
+    "surah_number": "54",
+    "surah_name": "আল-আকাম",
+    "total_ayahs": 55
+  },
+  {
+    "surah_number": "55",
+    "surah_name": "আল-রহমান",
+    "total_ayahs": 78
+  },
+  {
+    "surah_number": "56",
+    "surah_name": "আল-ওয়াকিয়া",
+    "total_ayahs": 96
+  },
+  {
+    "surah_number": "57",
+    "surah_name": "আল-হাদিদ",
+    "total_ayahs": 29
+  },
+  {
+    "surah_number": "58",
+    "surah_name": "মুজাদিলা",
+    "total_ayahs": 22
+  },
+  {
+    "surah_number": "59",
+    "surah_name": "আল-হাশর",
+    "total_ayahs": 24
+  },
+  {
+    "surah_number": "60",
+    "surah_name": "আল-মুমতাহিনা",
+    "total_ayahs": 13
+  },
+  {
+    "surah_number": "61",
+    "surah_name": "আল-সাফ",
+    "total_ayahs": 14
+  },
+  {
+    "surah_number": "62",
+    "surah_name": "আল-জুমু'আ",
+    "total_ayahs": 11
+  },
+  {
+    "surah_number": "63",
+    "surah_name": "আল-মুনাফিকুন",
+    "total_ayahs": 11
+  },
+  {
+    "surah_number": "64",
+    "surah_name": "আত-তাগাবুন",
+    "total_ayahs": 18
+  },
+  {
+    "surah_number": "65",
+    "surah_name": "আত-তালাক",
+    "total_ayahs": 12
+  },
+  {
+    "surah_number": "66",
+    "surah_name": "আল-তাহরিম",
+    "total_ayahs": 12
+  },
+  {
+    "surah_number": "67",
+    "surah_name": "আল-মুলক",
+    "total_ayahs": 30
+  },
+  {
+    "surah_number": "68",
+    "surah_name": "আল-কালম",
+    "total_ayahs": 52
+  },
+  {
+    "surah_number": "69",
+    "surah_name": "আল-হাক্কা",
+    "total_ayahs": 52
+  },
+  {
+    "surah_number": "70",
+    "surah_name": "আল-মারিজ",
+    "total_ayahs": 44
+  },
+  {
+    "surah_number": "71",
+    "surah_name": "নুহ",
+    "total_ayahs": 28
+  },
+  {
+    "surah_number": "72",
+    "surah_name": "আল-জিন",
+    "total_ayahs": 28
+  },
+  {
+    "surah_number": "73",
+    "surah_name": "আল-মুজাম্মিল",
+    "total_ayahs": 20
+  },
+  {
+    "surah_number": "74",
+    "surah_name": "আল-মুদ্দাসির",
+    "total_ayahs": 56
+  },
+  {
+    "surah_number": "75",
+    "surah_name": "কিয়ামাহ",
+    "total_ayahs": 40
+  },
+  {
+    "surah_number": "76",
+    "surah_name": "দাহর",
+    "total_ayahs": 31
+  },
+  {
+    "surah_number": "77",
+    "surah_name": "আল-মুরসালাত",
+    "total_ayahs": 50
+  },
+  {
+    "surah_number": "78",
+    "surah_name": "আন্নাবা",
+    "total_ayahs": 40
+  },
+  {
+    "surah_number": "79",
+    "surah_name": "আন-নাযিয়াত",
+    "total_ayahs": 46
+  },
+  {
+    "surah_number": "80",
+    "surah_name": "আব্দিয়া",
+    "total_ayahs": 42
+  },
+  {
+    "surah_number": "81",
+    "surah_name": "আত-তাকভির",
+    "total_ayahs": 29
+  },
+  {
+    "surah_number": "82",
+    "surah_name": "আল-ইনফিতার",
+    "total_ayahs": 19
+  },
+  {
+    "surah_number": "83",
+    "surah_name": "আল-মুতাফফিফিন",
+    "total_ayahs": 36
+  },
+  {
+    "surah_number": "84",
+    "surah_name": "আল-ইনশিকাক",
+    "total_ayahs": 25
+  },
+  {
+    "surah_number": "85",
+    "surah_name": "আল-বুরুজ",
+    "total_ayahs": 22
+  },
+  {
+    "surah_number": "86",
+    "surah_name": "আত-তারিक़",
+    "total_ayahs": 17
+  },
+  {
+    "surah_number": "87",
+    "surah_name": "আল-আল-আলা",
+    "total_ayahs": 19
+  },
+  {
+    "surah_number": "88",
+    "surah_name": "আল-ঘাশিয়া",
+    "total_ayahs": 26
+  },
+  {
+    "surah_number": "89",
+    "surah_name": "আল-ফজর",
+    "total_ayahs": 30
+  },
+  {
+    "surah_number": "90",
+    "surah_name": "আল-বালাদ",
+    "total_ayahs": 20
+  },
+  {
+    "surah_number": "91",
+    "surah_name": "আশ-শামস",
+    "total_ayahs": 15
+  },
+  {
+    "surah_number": "92",
+    "surah_name": "আল-লাইল",
+    "total_ayahs": 21
+  },
+  {
+    "surah_number": "93",
+    "surah_name": "আল-দোহা",
+    "total_ayahs": 11
+  },
+  {
+    "surah_number": "94",
+    "surah_name": "আল-শরহ",
+    "total_ayahs": 8
+  },
+  {
+    "surah_number": "95",
+    "surah_name": "আত-তীন",
+    "total_ayahs": 8
+  },
+  {
+    "surah_number": "96",
+    "surah_name": "আল-আলাক",
+    "total_ayahs": 19
+  },
+  {
+    "surah_number": "97",
+    "surah_name": "আল-কদর",
+    "total_ayahs": 5
+  },
+  {
+    "surah_number": "98",
+    "surah_name": "আল-বাইয়িনাহ",
+    "total_ayahs": 8
+  },
+  {
+    "surah_number": "99",
+    "surah_name": "আল-যিলজাল",
+    "total_ayahs": 8
+  },
+  {
+    "surah_number": "100",
+    "surah_name": "আল-আদিয়াত",
+    "total_ayahs": 11
+  },
+  {
+    "surah_number": "101",
+    "surah_name": "আল-ক্বারিয়া",
+    "total_ayahs": 11
+  },
+  {
+    "surah_number": "102",
+    "surah_name": "আল-তকাথুর",
+    "total_ayahs": 8
+  },
+  {
+    "surah_number": "103",
+    "surah_name": "আল-আসর",
+    "total_ayahs": 3
+  },
+  {
+    "surah_number": "104",
+    "surah_name": "আল-হুমাজা",
+    "total_ayahs": 9
+  },
+  {
+    "surah_number": "105",
+    "surah_name": "আল-ফিল",
+    "total_ayahs": 5
+  },
+  {
+    "surah_number": "106",
+    "surah_name": "কুরাইশ",
+    "total_ayahs": 4
+  },
+  {
+    "surah_number": "107",
+    "surah_name": "আল-মাউন",
+    "total_ayahs": 7
+  },
+  {
+    "surah_number": "108",
+    "surah_name": "আল-কওসার",
+    "total_ayahs": 3
+  },
+  {
+    "surah_number": "109",
+    "surah_name": "আল-কাল্লাউন",
+    "total_ayahs": 6
+  },
+  {
+    "surah_number": "110",
+    "surah_name": "আল-নাসর",
+    "total_ayahs": 3
+  },
+  {
+    "surah_number": "111",
+    "surah_name": "আল-লাহব",
+    "total_ayahs": 5
+  },
+  {
+    "surah_number": "112",
+    "surah_name": "আল-ইখলাস",
+    "total_ayahs": 4
+  },
+  {
+    "surah_number": "113",
+    "surah_name": "আল-ফালাক",
+    "total_ayahs": 5
+  },
+  {
+    "surah_number": "114",
+    "surah_name": "আন-নাস",
+    "total_ayahs": 6
+  }
 ]
