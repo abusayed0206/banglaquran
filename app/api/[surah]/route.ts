@@ -15,9 +15,10 @@ interface Surah {
 
 export async function GET(
   req: Request,
-  { params }: { params: { surah: string } }
+  context: { params: { surah: string } }
 ) {
-  const surah_number = params.surah;
+  // Ensure that params is awaited and processed correctly
+  const surah_number = context.params.surah;
 
   // Find the surah based on the requested surah number
   const surah = surahData.find((s) => s.surah_number === surah_number);
