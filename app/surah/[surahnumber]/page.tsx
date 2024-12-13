@@ -54,10 +54,7 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
     await ayahAudio.play();
     setIsPlaying(true);
 
-    const ayahElement = document.getElementById(`ayah-${index}`);
-    if (ayahElement) {
-      ayahElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    // Scroll the ayah into view (handled by AyahView)
   };
 
   const handlePlayPause = () => {
@@ -126,7 +123,6 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
               সূরা নং {convertToBengaliNumerals(surah.surah_number.toString())} |আয়াত সংখ্যাঃ{convertToBengaliNumerals(surah.total_ayahs.toString())}
             </div>
           </div>
-
         </div>
       </header>
 
