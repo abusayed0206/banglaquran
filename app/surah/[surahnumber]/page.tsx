@@ -1,84 +1,82 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image"; // Import Next.js Image component
+import { SurahData } from "@/app/types/surah";
+import AyahView from "@/app/components/AyahView";
+import AudioPlayer from "@/app/components/AudioPlayer";
 
-// Define the AyahData and SurahData types to match your API structure
-interface AyahData {
-  img: string;
-  audio: string;
-}
-
-interface SurahData {
-  surahName: string;
-  surahNumber: number;
-  totalAyahs: number;
-  ayah: AyahData[];
-}
-
-// SurahPage Component
 const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
-  const surahNumber = parseInt(params.surahnumber, 10);
-
-  // States for storing Surah data and loading states
+  const surahNumber = params.surahnumber;
   const [surah, setSurah] = useState<SurahData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentAyahIndex, setCurrentAyahIndex] = useState<number>(0);
+  const [volume, setVolume] = useState(1);
 
-  // Fetch Surah data
   useEffect(() => {
     const fetchSurahData = async () => {
       try {
-        const response = await fetch(
-          `/api/${surahNumber}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch Surah data");
-        }
+        const response = await fetch(`/api/${surahNumber}`);
+        if (!response.ok) throw new Error("Failed to fetch Surah data");
         const data: SurahData = await response.json();
         setSurah(data);
       } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("An unknown error occurred");
-        }
+        setError(err instanceof Error ? err.message : "An unknown error occurred");
       } finally {
         setLoading(false);
       }
     };
-
     fetchSurahData();
   }, [surahNumber]);
 
-  // Function to handle play/pause functionality
-  const handlePlayPause = async () => {
-    if (surah) {
-      if (isPlaying) {
-        audioRef.current?.pause();
-        setIsPlaying(false);
+  const playAyah = async (index: number) => {
+    if (!surah) return;
+
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+
+    setCurrentAyahIndex(index);
+    const ayahAudio = new Audio(surah.ayah[index].audio);
+    audioRef.current = ayahAudio;
+    ayahAudio.volume = volume;
+
+    ayahAudio.onended = () => {
+      if (index < surah.ayah.length - 1) {
+        playAyah(index + 1);
       } else {
-        // Play the current Ayah audio and move through all Ayahs
-        const ayahAudio = new Audio(surah.ayah[currentAyahIndex].audio);
-        audioRef.current = ayahAudio;
-        await ayahAudio.play();
-        ayahAudio.onended = () => {
-          if (currentAyahIndex < surah.ayah.length - 1) {
-            setCurrentAyahIndex(currentAyahIndex + 1);
-            handlePlayPause(); // Automatically play the next Ayah after current ends
-          } else {
-            setIsPlaying(false); // Stop when all Ayahs have been played
-          }
-        };
-        setIsPlaying(true);
+        setIsPlaying(false);
       }
+    };
+
+    await ayahAudio.play();
+    setIsPlaying(true);
+
+    const ayahElement = document.getElementById(`ayah-${index}`);
+    if (ayahElement) {
+      ayahElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
 
-  // Stop audio on component unmount
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      audioRef.current?.pause();
+      setIsPlaying(false);
+    } else {
+      playAyah(currentAyahIndex);
+    }
+  };
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+  };
+
   useEffect(() => {
     return () => {
       if (audioRef.current) {
@@ -89,56 +87,81 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
     };
   }, []);
 
-  // Loading and error handling
-  if (loading) return <div className="text-center">লোড হচ্ছে...</div>;
-  if (error) return <div className="text-center text-red-600">{error}</div>;
+  if (loading) return (
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="text-xl text-gray-600">লোড হচ্ছে...</div>
+    </div>
+  );
+
+  if (error) return (
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="text-xl text-red-600">{error}</div>
+    </div>
+  );
+
+  if (!surah) return null;
+
+  function convertToBengaliNumerals(surah_number: string): string {
+    const bnNumerals = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+    return surah_number
+      .split('')
+      .map(digit => bnNumerals[parseInt(digit, 10)])
+      .join('');
+  }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-5 bg-gray-50">
-      <Link href="/" className="mb-4 text-blue-500 hover:underline">
-        বাড়ি
-      </Link>
-      {surah && (
-        <>
-          <div className="bg-white text-black shadow-md rounded-lg mb-5 p-4 w-full max-w-md text-center">
-            <h2 className="text-2xl font-bold">{surah.surahName}</h2>
-            <p className="text-lg text-gray-600">সূরা নম্বর: {surah.surahNumber}</p>
-            <p className="text-lg text-gray-600">আয়াত সংখ্যা: {surah.totalAyahs}</p>
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="sticky top-0 bg-white shadow-md z-10 p-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <Link
+            href="/"
+            className="text-blue-500 hover:text-blue-600 transition px-4 py-2 rounded-lg hover:bg-blue-50"
+          >
+            বাড়ি
+          </Link>
+          <div className="text-center">
+            <h1 className="text-3xl text-black font-bold mb-1">{surah.surah_name}</h1>
+            <div className="text-black">
+              সূরা নং {convertToBengaliNumerals(surah.surah_number.toString())} |আয়াত সংখ্যাঃ{convertToBengaliNumerals(surah.total_ayahs.toString())}
+            </div>
           </div>
 
-          <div className="bg-gray-200 text-black p-4 rounded mb-5 flex flex-col items-center justify-center w-full max-w-md">
-            <button
-              onClick={handlePlayPause}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition mt-2"
-            >
-              {isPlaying ? "বন্ধ করুন" : "শুনুন"}
-            </button>
-          </div>
+        </div>
+      </header>
 
-          <div className="w-full max-w-md">
-            {surah.ayah.map((ayah, index) => (
-              <div
-                key={index}
-                className="bg-white text-black p-4 rounded-lg shadow-md mb-4"
-              >
-                {/* Use Next.js Image component for better optimization */}
-                <Image
-                  src={ayah.img}
-                  alt={`Ayah ${index + 1}`}
-                  width={500} // Set a consistent width for all images
-                  height={300} // Set a numeric height value
-                  className="w-full h-auto rounded mb-2"
-                />
-              </div>
-            ))}
-          </div>
-        </>
-      )}
+      {/* Main Content */}
+      <main className="flex-grow container mx-auto px-4 py-8 mb-24">
+        <div className="space-y-8">
+          {surah.ayah.map((ayah, index) => (
+            <AyahView
+              key={index}
+              ayahData={ayah}
+              ayahNumber={index + 1}
+              isPlaying={isPlaying && currentAyahIndex === index}
+              isActive={currentAyahIndex === index}
+              onPlay={() => playAyah(index)}
+            />
+          ))}
+        </div>
+      </main>
+
+      {/* Audio Player */}
+      <AudioPlayer
+        isPlaying={isPlaying}
+        currentAyah={currentAyahIndex}
+        totalAyahs={surah.total_ayahs}
+        surahNumber={surah.surah_number}
+        volume={volume}
+        onPlayPause={handlePlayPause}
+        onPrevious={() => currentAyahIndex > 0 && playAyah(currentAyahIndex - 1)}
+        onNext={() => currentAyahIndex < surah.total_ayahs - 1 && playAyah(currentAyahIndex + 1)}
+        onVolumeChange={handleVolumeChange}
+      />
     </div>
   );
 };
 
-// Specify that this component should run in the Edge runtime
 export const runtime = "edge";
 
 export default SurahPage;
