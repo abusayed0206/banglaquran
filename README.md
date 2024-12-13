@@ -12,51 +12,32 @@ Welcome to the **Quran Audio in Bangla** project! This repository is created to 
 
 1. **Get Ayah Audio**
 
-   - Endpoint: `/api/[surahnumber][ayahnumber]`
-   - Example Request: `/api/1/4`
+   - Endpoint: `/api/[surahnumber]`
+   - Example Request: `/api/1`
    - Example Response:
 
    ```json
-   {
-     "surahName": "Al-Faatiha",
-     "surahNumber": 1,
-     "revelationType": "Meccan",
-     "ayahNumber": 4,
-     "text": "যিনি বিচার দিনের মালিক।",
-     "audio": "/audio/bangla/1-4.mp3"
-   }
+{
+    "surah_number": "1",
+    "surah_name": "আল ফাতিহা",
+    "total_ayahs": 7,
+    "ayah": [
+      {"img": "/imgs/bangla/1-1.png", "audio": "/audio/bangla/1-1.mp3"},
+      {"img": "/imgs/bangla/1-2.png", "audio": "/audio/bangla/1-2.mp3"},
+      {"img": "/imgs/bangla/1-3.png", "audio": "/audio/bangla/1-3.mp3"},
+      {"img": "/imgs/bangla/1-4.png", "audio": "/audio/bangla/1-4.mp3"},
+      {"img": "/imgs/bangla/1-5.png", "audio": "/audio/bangla/1-5.mp3"},
+      {"img": "/imgs/bangla/1-6.png", "audio": "/audio/bangla/1-6.mp3"},
+      {"img": "/imgs/bangla/1-7.png", "audio": "/audio/bangla/1-7.mp3"}
+    ]
+    }
    ```
 
-2. **Get Surah Details**
-   - Endpoint: `/api/surah/[surahnumber]`
-   - Example Request: `/api/surah/114`
-   - Example Response:
-   ```json
-   {
-     "surahName": "Al-Faatiha",
-     "surahNumber": 1,
-     "numberofAyahs": 7,
-     "revelationType": "Meccan",
-     "ayahs": [
-       {
-         "number": 1,
-         "text": "শুরু করছি আল্লাহর নামে যিনি পরম করুণাময়, অতি দয়ালু।",
-         "audio": "/audio/bangla/1-1.mp3"
-       },
-       // More ayahs here...
-       {
-         "number": 7,
-         "text": "সে সমস্ত লোকের পথ, যাদেরকে তুমি নেয়ামত দান করেছ। তাদের পথ নয়, যাদের প্রতি তোমার গজব নাযিল হয়েছে এবং যারা পথভ্রষ্ট হয়েছে।",
-         "audio": "/audio/bangla/1-7.mp3"
-       }
-     ]
-   }
-   ```
 
 ## Acknowledgments 🙏
 
-- Audio from: [Quran.Gov.BD](http://www.quran.gov.bd/)
-- Text from: [Al-Quran Cloud API](https://alquran.cloud/api)
+- Audio and Images from: [Quran.Gov.BD](http://www.quran.gov.bd/)
+
 
 A heartfelt thank you to those who made this content available. Jazakallahu Khair!
 
