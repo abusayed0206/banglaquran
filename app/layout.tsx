@@ -10,13 +10,13 @@ const inter = Tiro_Bangla({
 
 export const metadata: Metadata = {
   title: "বাঙলা কোরআন অডিও",
-  description: "শুধুমাত্র বাঙলা অডিও কোরআন শোনার জন্য", 
+  description: "শুধুমাত্র বাঙলা অডিও কোরআন শোনার জন্য",
   openGraph: {
     images: [
       {
-        url: "/og.png",
-        width: 1200, 
-        height: 630, 
+        url: "https://quran.sayed.page/og.png",
+        width: 1200,
+        height: 630,
       },
     ],
   },
