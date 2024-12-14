@@ -49,7 +49,28 @@ export async function GET(
     ayah: ayahData,
   };
 
-  return NextResponse.json(response);
+  const nextResponse = NextResponse.json(response);
+
+  // Set CORS headers for cross-origin requests
+  nextResponse.headers.set("Access-Control-Allow-Origin", "*"); // Use a specific origin in production for security
+  nextResponse.headers.set(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  nextResponse.headers.set(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization"
+  );
+
+  // Handle preflight OPTIONS requests
+  if (req.method === "OPTIONS") {
+    return new NextResponse(null, {
+      status: 200,
+      headers: nextResponse.headers,
+    });
+  }
+
+  return nextResponse;
 }
 
 export const runtime = "edge";
