@@ -114,20 +114,6 @@ const HomePage: React.FC = () => {
     }`}</code>
         </pre>
 
-        <p className="text-lg sm:text-xl mb-4 text-gray-700">
-          খুব শীঘ্রই এন্ড্রয়েড এপ আসবে ইনশাআল্লাহ।
-        </p>
-
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <img
-            src="/fd.bmp"
-            alt="FDroid Icon"
-            width={100}
-            className="rounded-sm"
-          />
-          <span className="text-lg sm:text-xl font-medium text-gray-800">এফড্রয়েড এ পাবেন খুব শীঘ্রই!</span>
-        </div>
-
         {/* Acknowledgment Section */}
         <div className="  p-6 md:p-8 mb-12 w-full max-w-2xl mx-auto text-center">
           <h3 className="text-2xl sm:text-3xl font-semibold mb-4">কৃতজ্ঞতা স্বীকার 🙏</h3>
