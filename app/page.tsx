@@ -31,9 +31,14 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen text-gray-800 bg-gradient-to-r from-green-200 via-blue-200 to-purple-200 flex flex-col items-center justify-center p-6 md:p-12">
+      <div className="absolute top-0 right-0 p-4 bg-white rounded-lg shadow-xl m-4">
+        <Link href="https://github.com/abusayed0206/banglaquran" className="text-blue-800 hover:underline" target="_blank" rel="noopener noreferrer">
+          Github
+        </Link>
+      </div>
       {/* First Section: Surah Selection */}
       <div className="bg-white rounded-lg shadow-xl p-6 mb-12 w-full max-w-2xl mx-auto">
-      <h2 className="text-3xl text-center sm:text-4xl font-semibold text-blue-800 mb-4">বাংলা কোরআন অডিও🎧📖</h2>
+        <h2 className="text-3xl text-center sm:text-4xl font-semibold text-blue-800 mb-4">বাংলা কোরআন অডিও🎧📖</h2>
         <h1 className="text-center text-2xl sm:text-2xl font-bold text-blue-700 mb-5">কোরআনের সূরা নির্বাচন করুন</h1>
 
         <div className="mb-5">

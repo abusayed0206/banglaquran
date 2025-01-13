@@ -113,7 +113,7 @@ const SurahPage = ({ params }: { params: { surahnumber: string } }) => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link
             href="/"
-            className="text-blue-500 hover:text-blue-600 transition px-4 py-2 rounded-lg hover:bg-blue-50"
+            className="rounded-lg bg-blue-600 text-white px-6 py-3 hover:bg-blue-700 transition"
           >
             বাড়ি
           </Link>
