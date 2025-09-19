@@ -43,3 +43,6 @@ A heartfelt thank you to those who made this content available. **Jazakallahu Kh
 
 Please pray for me; it would be the best donation for my efforts.
 
+## Windows Store version
+
+Published a Windows app based on the API:  [Store Link](https://apps.microsoft.com/detail/9N3GSZ7V18ZP)
