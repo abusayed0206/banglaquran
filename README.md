@@ -44,5 +44,6 @@ A heartfelt thank you to those who made this content available. **Jazakallahu Kh
 Please pray for me; it would be the best donation for my efforts.
 
 ## Windows Store version
-
-Published a Windows app based on the API:  [Store Link](https://apps.microsoft.com/detail/9N3GSZ7V18ZP)
+ <a href="https://apps.microsoft.com/detail/9n3gsz7v18zp?referrer=appbadge&mode=direct">
+	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+</a>
