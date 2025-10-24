@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>https://quran.sayed.app/sitemap-pages-1.xml</loc>
+        <lastmod>2024-12-16</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://quran.sayed.app/sitemap-images-1.xml</loc>
+        <lastmod>2024-12-16</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://quran.sayed.app/sitemap-audio-1.xml</loc>
+        <lastmod>2024-12-16</lastmod>
+    </sitemap>
+</sitemapindex>
