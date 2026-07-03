@@ -1,5 +1,21 @@
 # Quran Audio in Bangla 🎧📖
 
+> [!WARNING]
+> ## 🚧 This repository is archived
+>
+> This project is no longer actively maintained.
+>
+> I have redesigned the backend, and the new API is available at **https://quran.sayed.app/docs**.
+>
+> **Android, macOS, and Linux builds are on the way.**
+>
+> ### Microsoft Store
+>
+> <a href="https://apps.microsoft.com/detail/9n3gsz7v18zp?referrer=appbadge&mode=full" target="_blank" rel="noopener noreferrer">
+>   <img src="https://get.microsoft.com/images/en-us%20light.svg" width="200"/>
+> </a>
+
+
 Welcome to the **Quran Audio in Bangla** project! This repository is created to help you listen to the Quran in Bangla without needing to go to YouTube every time. Enjoy the divine words of Allah with ease and convenience!
 
 ## Features 🌟
